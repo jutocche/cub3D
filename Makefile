@@ -1,0 +1,97 @@
+# ================================
+# VARIABLES AND CONFIGURATION
+# ================================
+
+# Executable
+NAME = cub3D
+
+# Directory
+LIBFT_DIR = libft
+MLX_DIR = minilibx-linux
+OBJS_DIR = objects
+
+# Sources files
+SRCS = 0_main.c \
+
+
+
+
+
+# Object files (objects/<path>.o)
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+# OBJS = $(patsubst %.c, $(OBJS_DIR)/%.o, $(SRCS))
+
+# Compilation and flags
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR) -I$(MLX_DIR)
+
+# Library
+LIBFT = -L$(LIBFT_DIR) -lft
+MLX = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
+
+# Output settings (colors)
+GREEN = \033[0;32m
+RED = \033[0;31m
+BLUE = \033[0;34m
+YELLOW = \033[0;33m
+NC = \033[0m
+BOLD_UNDERLINE = \033[1;4m
+
+# ================================
+# COMPILATION
+# ================================
+
+# Default target
+all: $(NAME)
+	@printf "$(GREEN)$(BOLD_UNDERLINE)✓ Compilation terminée avec succès !$(NC)\n"
+
+# Link the executable
+$(NAME): $(OBJS) | libft
+	@printf "$(BLUE)🔗 Linking $(NAME)$(NC)\n"
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(LDFLAGS)
+
+# Compile each .o from .c (preserving folders, handling dots)
+$(OBJS_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	@printf "$(YELLOW)🔨 Compilation de $<$(NC)\n"
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Build libft
+libft:
+	@printf "$(BLUE)📚 Compilation de libft...$(NC)\n"
+	$(MAKE) -C $(LIBFT_DIR)
+
+# ================================
+# CLEANING
+# ================================
+
+clean:
+	@printf "$(RED)🧹 Suppression des fichiers objets...$(NC)\n"
+	rm -rf $(OBJS_DIR)
+
+fclean: clean
+	@printf "$(RED)🗑️  Suppression de l’exécutable...$(NC)\n"
+	rm -f $(NAME)
+
+clean_libft:
+	@printf "$(RED)🧹 Suppression des objets de libft...$(NC)\n"
+	$(MAKE) clean -C $(LIBFT_DIR)
+	rm -rf $(OBJS_DIR)
+
+fclean_libft: clean_libft
+	@printf "$(RED)🗑️  Suppression de l’exécutable et libft...$(NC)\n"
+	$(MAKE) fclean -C $(LIBFT_DIR)
+	rm -f $(NAME)
+
+# ================================
+# RECOMPILATION
+# ================================
+
+re: fclean all
+re_libft: fclean_libft all
+
+# ================================
+# PHONY
+# ================================
+
+.PHONY: all clean fclean clean_libft fclean_libft re re_libft libft
