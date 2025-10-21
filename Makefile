@@ -11,14 +11,20 @@ MLX_DIR = minilibx-linux
 OBJS_DIR = objects
 
 # Sources files
-SRCS = 0_main.c \
+SRCS = 0_cub3D.c \
+	0_free_cub_and_close.c \
+	1_is_name_file_correct.c \
+	2_is_opening_file_possible.c \
+	3_is_data_file_correct.c \
+	4_fill_map.c
+
 
 
 
 
 
 # Object files (objects/<path>.o)
-OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
 # OBJS = $(patsubst %.c, $(OBJS_DIR)/%.o, $(SRCS))
 
 # Compilation and flags
