@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_is_data_file_correct.c                           :+:      :+:    :+:   */
+/*   3_is_cub_file_readable.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jutocche <jutocche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 14:04:54 by jutocche          #+#    #+#             */
-/*   Updated: 2025/10/20 15:24:49 by jutocche         ###   ########.fr       */
+/*   Updated: 2025/10/25 10:36:57 by jutocche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	line_len_and_line_count(t_cub *cub)
 	return (0);
 }
 
-bool	is_data_file_correct(t_cub *cub)
+bool	is_cub_file_readable(t_cub *cub)
 {
 	if (line_len_and_line_count(cub) == 1)
 		return (false);

@@ -14,9 +14,20 @@ OBJS_DIR = objects
 SRCS = 0_cub3D.c \
 	0_free_cub_and_close.c \
 	1_is_name_file_correct.c \
-	2_is_opening_file_possible.c \
+	2_first_opening_file.c \
 	3_is_data_file_correct.c \
-	4_fill_map.c
+	4_fill_map.c \
+	5_is_data_cub_file_valid.c \
+	6_is_all_elements_presents.c \
+	7_check_wall_textures.c \
+	8_check_floor_ceiling_and_map.c \
+	9_error_message_check.c \
+	10_is_wall_textures_valid.c \
+	11_textures_NO_valid.c \
+	12_textures_SO_valid.c \
+	13_textures_WE_valid.c \
+	14_textures_EA_valid.c \
+	15_error_message_textures.c
 
 
 

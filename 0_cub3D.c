@@ -6,7 +6,7 @@
 /*   By: jutocche <jutocche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 15:28:15 by jutocche          #+#    #+#             */
-/*   Updated: 2025/10/20 15:04:07 by jutocche         ###   ########.fr       */
+/*   Updated: 2025/10/25 10:37:46 by jutocche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ int	main(int argc, char **argv)
 	}
 	if (first_opening_file(cub, argv[1]) == false)
 		return (-3);
-	if (is_data_file_correct(cub) == false)
+	if (is_cub_file_readable(cub) == false)
 		return (-4);
+	if (is_data_cub_file_valid(cub) == false)
+		return (-5);
 
 
 

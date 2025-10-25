@@ -6,13 +6,13 @@
 /*   By: jutocche <jutocche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 10:46:50 by jutocche          #+#    #+#             */
-/*   Updated: 2025/10/20 14:28:52 by jutocche         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:32:25 by jutocche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-bool	is_file_extension_correct(char *file)
+bool	is_file_extension_cub_correct(char *file)
 {
 	int		len_file;
 	char	*to_find;
@@ -67,9 +67,9 @@ bool	is_name_file_correct(int argc, char *argv)
 		ft_printf("Error\nFile name empty\n");
 		return (false);
 	}
-	if (is_file_extension_correct(argv) == false)
+	if (is_file_extension_cub_correct(argv) == false)
 	{
-		ft_printf("Error\nWrong extension file\n");
+		ft_printf("Error\nWrong extension file .cub\n");
 		return (false);
 	}
 	return (true);
